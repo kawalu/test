@@ -1,0 +1,75 @@
+.remsue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20%;
+    /* position: relative; */
+
+}
+
+.cols {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #000;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    margin-right: 20px;
+    position: relative;
+
+    
+}
+
+span {
+    width: 25%;
+    height: 25%;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.point1 {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+._2 {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+._3 {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+._4 {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}
+
+._5 {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+}
+
+._6 {
+    position: absolute;
+    left: 10%;
+    top: 35%;
+}
+
+._7 {
+    position: absolute;
+    right: 9%;
+    top: 35%;
+
+}
+
