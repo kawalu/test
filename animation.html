@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: auto;
+            padding: 1rem;
+            border: 1px solid #333;
+        }
+
+        .wrap {
+            border: 5px dashed #000;
+            margin: 50px;
+            padding: 50px;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            color: white;
+            line-height: 100px;
+            text-align: inherit;
+            font-size: 2rem;
+        }
+
+        /* 建立動畫*/
+        /* 步驟一 先建立一組關鍵影格(keyframes) 設定動畫名稱(名子自取) from(0%) 結束to(100%)狀態*/
+
+        @keyframes animation {
+            0% {
+                transform: translateX(0px) translateY(0px);
+                background-color: red;
+            }
+
+            20% {
+                transform: translateX(850px) translateY(0px);
+            }
+
+            40% {
+                transform: translateX(850px) translateY(-50px);
+            }
+
+            60% {
+                transform: translateX(0px) translateY(-50px);
+            }
+
+            80% {
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+
+        /* 步驟二 設置動畫各種屬性*/
+        .animation {
+            /* 動畫名稱 animation是 @keyframes 自定義名稱*/
+            animation-name: animation;
+            /* 持續時間 ms 或s */
+            animation-duration: 2s;
+            /* 播放次數 infinite為無限循環*/
+            animation-iteration-count: infinite;
+            /* 播放速率*/
+            /* ease liner ease-in ease-out */
+            animation-timing-function: ease-in-out;
+            /*
+            normal(預設) =>0% ~ 100%
+            reverse 100% ~ 0
+            alternate 交替播放 => 奇數正向播放 偶數反向播放 0%~100% -> 100% ~ 0%
+            alternate-reverse 交替播放 -> 奇數正向播放 偶數反向播放 0%~100% -> 100% ~ 0%
+            */
+            animation-direction: reverse;
+            /* 動畫延續時間*/
+            /* animation-dlay: 3s; */
+            animation-delay: 3s;
+
+
+            /*
+            播放填充模式 none forwards backwards both
+            none => 動畫結束時回到沒有進入動畫初始狀態前(尚未進入0%的狀態)
+            forward=> 停在動畫最後一偵數 會根據動畫播會根據動畫播放方向 animation-direction 設定有所不同 正像最後一偵是在100%(藍色)
+            backwards => 當有設定 delay(動畫等待時期) 動畫一開始會停在第一偵 0% 動畫結束後沒有進入動畫的初始狀態
+            both => 動畫一開始在第一偵(紅色) 結束停在最後一偵(藍色) 有delay時最好設定 both
+            */
+
+            animation-fill-mode: both;
+
+            animation: animation 2s 3s infinite ease-in-out alternate both;
+
+        }
+
+        .muitiple {
+            animation-name: rotatelt moveIt;
+            animation-duration: 3s 6s;
+            
+            animation: rotatelt 3s infinite , moveIt 6s ;
+        }
+
+        @keyframes rotatelt {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes moveIt {
+            50% {
+                margin-left: 1000px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>動畫</h1>
+        <p>動畫與轉場的差異</p>
+        <h2>animation</h2>
+        <ul>
+            <li>可以設定關鍵影格(keyframes)控制動態的狀態,產生更複雜的動畫</li>
+            <li>可以循環重複 來回播放 網頁載入時自動撥放</li>
+        </ul>
+
+        <h2>transition</h2>
+        <ul>一定要有觸發條件 兩種樣式的改變 通常透過偽類 :hover :checked focus 等狀態來觸發</li>
+            <li>無法在網頁載入時自動發生 而且是一次性且沒有循環效果 必須再重新觸發</li>
+        </ul>
+
+
+        <div class="wrap">
+            <div class="box animation"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h2>套用多組動畫 用逗點隔開</h2>
+
+        <div class="wrap">
+            <div class="box muitiple"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
