@@ -1,24 +1,29 @@
+body {
+    background-color: gray;
+}
+
 .remsue {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20%;
-    /* position: relative; */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 
 }
 
 .cols {
-    display: flex;
+    display: inline-block;
     background-color: #fff;
     border: 1px solid #000;
     width: 120px;
     height: 120px;
     border-radius: 10px;
     margin-right: 20px;
+    background-image: linear-gradient(45deg, #ccc, #fff);
     position: relative;
 
-    
+
 }
 
 span {
@@ -28,9 +33,13 @@ span {
     border-radius: 50%;
 }
 
+.point-red {
+    background-color: red;
+}
+
 .point1 {
     position: absolute;
-    top: 50%;  
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -72,4 +81,3 @@ span {
     top: 35%;
 
 }
-
